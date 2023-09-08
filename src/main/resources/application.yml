@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    username: pguser
+    password: pgpass
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/taxiDB
+  jpa:
+    hibernate.ddl-auto: create
+    show-sql: true
