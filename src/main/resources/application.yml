@@ -5,5 +5,26 @@ spring:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/taxiDB
   jpa:
-    hibernate.ddl-auto: create
+    hibernate.ddl-auto: validate
     show-sql: true
+
+coordinate:
+  start-longitude: 50.189683
+  start-latitude: 53.222579
+  finish-longitude: 50.102834
+  finish-latitude: 53.199131
+
+uber:
+  url: https://taxi-routeinfo.taxi.yandex.net/taxi_info
+  clId: ${UBER_CLID}
+  apiKey: ${UBER_APIKEY}
+
+management:
+  endpoints.web.exposure.include: 'prometheus, health'
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+    distribution:
+      percentiles-histogram:
+        "[http.server.requests]": true
